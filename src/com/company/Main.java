@@ -44,6 +44,8 @@ public class Main {
     public List<Student> generateStudentsTwoCourse(){
 
         List<Student> students = new ArrayList<Student>();
+        students.add(new Student(generateRandom(5),generateRandom(7),generateRandom(5),generateRandom(8),generateRandom(9),generateRandom(5),false,6033534L,2));
+        students.add(new Student(generateRandom(5),generateRandom(7),generateRandom(6),generateRandom(6),generateRandom(8),generateRandom(5),false,6220434L,2));
 
         return students;
     }
