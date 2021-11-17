@@ -12,6 +12,10 @@ public class Main {
 
     public static void main(String[] args) {
 	// write your code here
+
+        List<Student> studentsFirstCourse = generateStudentsOneCourse();
+        List<Student> studentsSecondCourse = generateStudentsTwoCourse();
+        List<Teacher> teachers = generateTeachers();
     }
 
 
@@ -31,7 +35,7 @@ public class Main {
         return sb.toString();
     }
 
-    public List<Student> generateStudentsOneCourse(){
+    public static List<Student> generateStudentsOneCourse(){
 
         List<Student> students = new ArrayList<Student>();
 
@@ -41,7 +45,7 @@ public class Main {
         return students;
     }
 
-    public List<Student> generateStudentsTwoCourse(){
+    public static List<Student> generateStudentsTwoCourse(){
 
         List<Student> students = new ArrayList<Student>();
         students.add(new Student(generateRandom(5),generateRandom(7),generateRandom(5),generateRandom(8),generateRandom(9),generateRandom(5),false,6033534L,2));
@@ -50,7 +54,7 @@ public class Main {
         return students;
     }
 
-    public List<Teacher> generateTeachers(){
+    public static List<Teacher> generateTeachers(){
 
         List<Teacher> teachers = new ArrayList<Teacher>();
 
