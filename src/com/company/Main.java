@@ -31,9 +31,12 @@ public class Main {
         return sb.toString();
     }
 
-    public List<Student> generateStudentsOneCourse(){//заполнять через соответствующий конструктор
+    public List<Student> generateStudentsOneCourse(){
 
         List<Student> students = new ArrayList<Student>();
+
+        students.add(new Student(generateRandom(6),generateRandom(5),generateRandom(7),generateRandom(10),generateRandom(6),generateRandom(4),true,8543234L,1));
+        students.add(new Student(generateRandom(5),generateRandom(7),generateRandom(9),generateRandom(10),generateRandom(8),generateRandom(5),true,8043644L,1));
 
         return students;
     }
