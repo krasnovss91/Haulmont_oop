@@ -1,5 +1,6 @@
 package com.company;
 
+import com.company.entuty.Person;
 import com.company.entuty.Student;
 import com.company.entuty.Teacher;
 
@@ -16,6 +17,13 @@ public class Main {
         List<Student> studentsFirstCourse = generateStudentsOneCourse();
         List<Student> studentsSecondCourse = generateStudentsTwoCourse();
         List<Teacher> teachers = generateTeachers();
+
+        List<Person> people = new ArrayList<>();
+
+        people.add((Person) studentsFirstCourse);
+        people.add((Person) studentsSecondCourse);
+        people.add((Person) teachers);
+
     }
 
 
