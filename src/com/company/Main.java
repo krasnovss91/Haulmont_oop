@@ -32,7 +32,8 @@ public class Main {
         List<Person> toRemove = sortedPeople.stream().filter(p -> p.getActive() == false).collect(Collectors.toList());//исключили нужных пользователей
         toRemove.forEach(sortedPeople::remove);
 
-        sortedPeople.stream().filter(p -> p.getClass() == Teacher.class).forEach(s -> System.out.println(s.getFirstName() + " " + s.getLastName() + " " + s.getMiddleName() + " " +((Teacher) s).getPosition()));
+        sortedPeople.stream().filter(p -> p.getClass() == Teacher.class).forEach(s -> System.out.println(s.getFirstName() + " " + s.getLastName() + " " + s.getMiddleName() + " " + ((Teacher) s).getPosition()));
+        sortedPeople.stream().filter(p -> p.getClass() == Student.class).forEach(s -> System.out.println(s.getLastName() + " " + s.getFirstName() + " номер курса " + ((Student) s).getCourse()));
 
 
     }
