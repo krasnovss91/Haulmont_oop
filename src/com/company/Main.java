@@ -6,6 +6,7 @@ import com.company.entuty.Teacher;
 
 import java.security.SecureRandom;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Random;
 
@@ -19,23 +20,14 @@ public class Main {
         List<Teacher> teachers = generateTeachers();
 
         List<Student> allStudetns = new ArrayList<>();
-        
+
         allStudetns.addAll(studentsFirstCourse);
         allStudetns.addAll(studentsSecondCourse);
 
-        //   List<Person> people = new ArrayList<>();
-
-       // people.add((Person) studentsFirstCourse);
-       // people.add((Person) studentsSecondCourse);
-       // people.add((Person) teachers);
-        /*
-        List<A> someAs = new List<A>() { new A(), new A() };  объединение 2 списков разных объектов
-        List<B> someBs = new List<B>() { new B(), new B { something = new A() } };
-
-        List<Object> allS = (from x in someAs select (Object)x).ToList();
-        allS.AddRange((from x in someBs select (Object)x).ToList());
-         */
-
+        List<Person> people = new ArrayList<>();
+        people.addAll((Collection<? extends Person>) allStudetns);
+        people.addAll(teachers);
+        
     }
 
 
