@@ -18,11 +18,23 @@ public class Main {
         List<Student> studentsSecondCourse = generateStudentsTwoCourse();
         List<Teacher> teachers = generateTeachers();
 
-        List<Person> people = new ArrayList<>();
+        List<Student> allStudetns = new ArrayList<>();
+        
+        allStudetns.addAll(studentsFirstCourse);
+        allStudetns.addAll(studentsSecondCourse);
 
-        people.add((Person) studentsFirstCourse);
-        people.add((Person) studentsSecondCourse);
-        people.add((Person) teachers);
+        //   List<Person> people = new ArrayList<>();
+
+       // people.add((Person) studentsFirstCourse);
+       // people.add((Person) studentsSecondCourse);
+       // people.add((Person) teachers);
+        /*
+        List<A> someAs = new List<A>() { new A(), new A() };  объединение 2 списков разных объектов
+        List<B> someBs = new List<B>() { new B(), new B { something = new A() } };
+
+        List<Object> allS = (from x in someAs select (Object)x).ToList();
+        allS.AddRange((from x in someBs select (Object)x).ToList());
+         */
 
     }
 
