@@ -5,10 +5,7 @@ import com.company.entuty.Student;
 import com.company.entuty.Teacher;
 
 import java.security.SecureRandom;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Main {
@@ -28,9 +25,12 @@ public class Main {
         List<Person> people = new ArrayList<>();
         people.addAll((Collection<? extends Person>) allStudetns);
         people.addAll(teachers);
+        
+        Comparator<Person> compareByLastName = Comparator.comparing(Person::getLastName);
+        List<Person> sortedPeople = people.stream().sorted(compareByLastName).collect(Collectors.toList());//отсортировали по фамилии
 
-        List<Person> toRemove = people.stream().filter(p -> p.getActive() == false).collect(Collectors.toList());//исключили нужных пользователей
-        toRemove.forEach(people::remove);
+        List<Person> toRemove = sortedPeople.stream().filter(p -> p.getActive() == false).collect(Collectors.toList());//исключили нужных пользователей
+        toRemove.forEach(sortedPeople::remove);
 
     }
 
