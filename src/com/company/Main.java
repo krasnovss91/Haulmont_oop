@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
+        // write your code here
 
         List<Student> studentsFirstCourse = generateStudentsOneCourse();
         List<Student> studentsSecondCourse = generateStudentsTwoCourse();
@@ -25,12 +25,15 @@ public class Main {
         List<Person> people = new ArrayList<>();
         people.addAll((Collection<? extends Person>) allStudetns);
         people.addAll(teachers);
-        
+
         Comparator<Person> compareByLastName = Comparator.comparing(Person::getLastName);
         List<Person> sortedPeople = people.stream().sorted(compareByLastName).collect(Collectors.toList());//отсортировали по фамилии
 
         List<Person> toRemove = sortedPeople.stream().filter(p -> p.getActive() == false).collect(Collectors.toList());//исключили нужных пользователей
         toRemove.forEach(sortedPeople::remove);
+
+        sortedPeople.stream().filter(p -> p.getClass() == Teacher.class).forEach(s -> System.out.println(s.getFirstName() + " " + s.getLastName() + " " + s.getMiddleName() + " " +((Teacher) s).getPosition()));
+
 
     }
 
@@ -51,32 +54,32 @@ public class Main {
         return sb.toString();
     }
 
-    public static List<Student> generateStudentsOneCourse(){
+    public static List<Student> generateStudentsOneCourse() {
 
         List<Student> students = new ArrayList<Student>();
 
-        students.add(new Student(generateRandom(6),generateRandom(5),generateRandom(7),generateRandom(10),generateRandom(6),generateRandom(4),true,8543234L,1));
-        students.add(new Student(generateRandom(5),generateRandom(7),generateRandom(9),generateRandom(10),generateRandom(8),generateRandom(5),true,8043644L,1));
+        students.add(new Student(generateRandom(6), generateRandom(5), generateRandom(7), generateRandom(10), generateRandom(6), generateRandom(4), true, 8543234L, 1));
+        students.add(new Student(generateRandom(5), generateRandom(7), generateRandom(9), generateRandom(10), generateRandom(8), generateRandom(5), true, 8043644L, 1));
 
         return students;
     }
 
-    public static List<Student> generateStudentsTwoCourse(){
+    public static List<Student> generateStudentsTwoCourse() {
 
         List<Student> students = new ArrayList<Student>();
-        students.add(new Student(generateRandom(5),generateRandom(7),generateRandom(5),generateRandom(8),generateRandom(9),generateRandom(5),false,6033534L,2));
-        students.add(new Student(generateRandom(5),generateRandom(7),generateRandom(6),generateRandom(6),generateRandom(8),generateRandom(5),false,6220434L,2));
+        students.add(new Student(generateRandom(5), generateRandom(7), generateRandom(5), generateRandom(8), generateRandom(9), generateRandom(5), false, 6033534L, 2));
+        students.add(new Student(generateRandom(5), generateRandom(7), generateRandom(6), generateRandom(6), generateRandom(8), generateRandom(5), false, 6220434L, 2));
 
         return students;
     }
 
-    public static List<Teacher> generateTeachers(){
+    public static List<Teacher> generateTeachers() {
 
         List<Teacher> teachers = new ArrayList<Teacher>();
 
-        teachers.add(new Teacher(generateRandom(5),generateRandom(5),generateRandom(7),generateRandom(7),generateRandom(7),generateRandom(8),true,generateRandom(8)));
-        teachers.add(new Teacher(generateRandom(5),generateRandom(5),generateRandom(5),generateRandom(6),generateRandom(9),generateRandom(8),false,generateRandom(6)));
-        teachers.add(new Teacher(generateRandom(5),generateRandom(5),generateRandom(8),generateRandom(8),generateRandom(10),generateRandom(6),true,generateRandom(8)));
+        teachers.add(new Teacher(generateRandom(5), generateRandom(5), generateRandom(7), generateRandom(7), generateRandom(7), generateRandom(8), true, generateRandom(8)));
+        teachers.add(new Teacher(generateRandom(5), generateRandom(5), generateRandom(5), generateRandom(6), generateRandom(9), generateRandom(8), false, generateRandom(6)));
+        teachers.add(new Teacher(generateRandom(5), generateRandom(5), generateRandom(8), generateRandom(8), generateRandom(10), generateRandom(6), true, generateRandom(8)));
 
         return teachers;
     }
